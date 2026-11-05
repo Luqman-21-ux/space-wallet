@@ -1,0 +1,1 @@
+import "./globals.css"; export const metadata={title:"SPACE Wallet",description:"An interactive four-card wallet. Explore solid-color cards and switch between deep wallet colors."}; export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}

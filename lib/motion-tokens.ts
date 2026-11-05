@@ -1,0 +1,1 @@
+export const motionTokens={ease:{standard:[.4,0,.2,1],enter:[.16,1,.3,1]},spring:{smooth:{type:"spring",stiffness:320,damping:32,mass:.8},morph:{type:"spring",stiffness:420,damping:32,mass:.7},snappy:{type:"spring",stiffness:500,damping:30,mass:.6}},duration:{fast:.18,standard:.28,instant:.1},blur:{soft:3}} as const;

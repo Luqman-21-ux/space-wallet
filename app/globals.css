@@ -1,0 +1,38 @@
+@import "tailwindcss";
+:root{--background:#111112;--foreground:#f1f1f2;--muted-foreground:#99999f;--ring:#d0d0d0}
+@theme inline{--color-background:var(--background);--color-foreground:var(--foreground);--color-muted-foreground:var(--muted-foreground);--color-ring:var(--ring)}
+@font-face{font-family:'Creato Display';src:url('/creato-display-regular.woff2') format('woff2');font-weight:400;font-display:swap}@font-face{font-family:'Creato Display';src:url('/creato-display-medium.woff2') format('woff2');font-weight:500;font-display:swap}
+*{box-sizing:border-box}body{margin:0;background:#000;color:#fafafa;font-family:'Creato Display',sans-serif;font-weight:400;font-synthesis:none}button{font:inherit;cursor:pointer}main{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:80px 24px}.wallet-scene{width:410px;max-width:100%}.wallet-heading{display:flex;justify-content:space-between;margin:0 16px 32px;color:#77777d;font-size:10px;font-weight:500;letter-spacing:.15em}.wallet{width:100%;--background:#111112;filter:drop-shadow(0 16px 35px #0005)}.wallet [data-slot=card-folder-back]{background:linear-gradient(145deg,#202022,#090909);border-color:#ffffff20}.wallet-footer{position:relative;display:flex;justify-content:space-between;align-items:center;min-height:50px;padding:22px 8px 0;color:#7c7c83;font-size:11px}.open-hint,.private-note{display:flex;align-items:center;gap:5px}.is-open{padding-top:122px;flex-direction:column;gap:16px}.is-open p{margin:0;font-size:10px;color:#727279}.close-wallet{border:0;background:none;color:#b1b1b8;font-size:12px;display:flex;align-items:center;gap:5px}.color-card{position:absolute;inset:0;border-radius:18px;overflow:hidden;background:transparent}.color-field{position:absolute;inset:-20%;background:radial-gradient(ellipse at 83% 90%,var(--c) 0,transparent 47%),radial-gradient(ellipse at 80% 9%,var(--b) 0,transparent 55%),radial-gradient(ellipse at 10% 30%,var(--a) 10%,transparent 80%);transform:rotate(-12deg);opacity:.52}.glass-surface{position:absolute;inset:0;background:linear-gradient(118deg,transparent 0%,#ffffff08 17%,#ffffff66 30%,#ffffff20 35%,transparent 44%,transparent 72%,#ffffff1c 100%),linear-gradient(180deg,#ffffff26 0%,#ffffff05 45%,#0000000a 100%);-webkit-backdrop-filter:blur(10px) saturate(140%);backdrop-filter:blur(10px) saturate(140%);border:0;border-radius:18px;box-shadow:none}.glass-surface:after{content:"";position:absolute;inset:0;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h160v160H0z'/%3E%3C/svg%3E")}.card-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:23px 24px;color:#0c2029;text-shadow:0 1px 8px #ffffff18}.card-top,.card-bottom,.card-middle{display:flex;align-items:center;justify-content:space-between}.brand{font-size:24px;letter-spacing:-1px;font-weight:500;display:flex;align-items:center;gap:3px}.brand-dot{width:5px;height:5px;border-radius:50%;background:currentColor;margin-top:12px}.card-kind{font-size:10px;font-weight:500}.balance-label{display:block;font-size:10px;font-weight:400;margin-bottom:4px}.balance{font-size:28px;letter-spacing:-1px;font-weight:500;line-height:1.1}.contactless{transform:rotate(90deg)}.card-bottom{font-size:12px;font-weight:500}.last-four{margin-left:9px;font-size:10px;opacity:.65}.network{display:flex;padding-right:1px}.network i{display:block;width:21px;height:21px;border-radius:50%;border:1px solid #102c3960;background:#ffffff35}.network i+i{margin-left:-8px;background:#ffffff60}.reset-button{background:#fafafa;color:#111;border:0;border-radius:20px;padding:10px 16px;font-size:12px;font-weight:500}
+@media(max-width:440px){.card-content{padding:18px}.balance{font-size:25px}.wallet-heading{margin-bottom:26px}.private-note{display:none}.wallet-footer{justify-content:center}}
+@media(prefers-reduced-transparency:reduce){.glass-surface{backdrop-filter:none;-webkit-backdrop-filter:none;background:#ffffff55}.color-field{filter:blur(12px)}}
+@supports not (backdrop-filter:blur(1px)){.glass-surface{background:#ffffff55}}
+
+.wallet .font-mono{font-family:"Creato Display",sans-serif}
+
+.wallet[data-open="false"] [aria-roledescription="card stack"]+div{visibility:hidden;pointer-events:none}
+
+.payment-logo{display:block;object-fit:contain;object-position:left center;flex-shrink:0}.visa-logo{width:55px;height:24px}.mastercard-logo{width:43px;height:28px}.card-expiry{font-size:10px;font-weight:400;opacity:.7;letter-spacing:.06em}.space-logo{display:block;width:82px;height:27px;object-fit:contain;object-position:left center;mix-blend-mode:screen}.wallet [data-slot=card-folder-back]{background:linear-gradient(145deg,#141415,#050505)}
+
+.glass-surface::before{content:"";display:block;position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at 20% 0%,#ffffff35,transparent 58%);opacity:.8}
+@media(prefers-reduced-transparency:reduce){.glass-surface{background:#ffffff70;backdrop-filter:none;-webkit-backdrop-filter:none}}
+
+/* Solid gradient cards. */
+.color-card{background:var(--a);isolation:isolate}
+.color-field{opacity:1}
+.glass-surface{display:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border:0}
+
+/* Blur only the oversized color layer; card content stays crisp. */
+.color-field{filter:blur(28px);opacity:1}
+
+.wallet{--background:var(--wallet-color,#111112)}.wallet [data-slot=card-folder-back]{background:var(--wallet-color,#111112)}
+
+/* One solid color per card. */
+.color-field{background:var(--a);filter:none;opacity:1;transform:none}
+
+.card-content{color:#fff;text-shadow:none}.card-content .last-four,.card-content .card-expiry{opacity:1}
+
+.color-card,.color-field{border:0;outline:0;box-shadow:none}
+
+.wallet [data-slot="card-folder-back"]{transition:background-color 350ms ease}
+.wallet svg path:first-child{transition:fill 350ms ease}
+@media(prefers-reduced-motion:reduce){.wallet [data-slot="card-folder-back"],.wallet svg path:first-child{transition:none}}
